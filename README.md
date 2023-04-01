@@ -2,7 +2,7 @@
 
 <div align=center>
   <a href="https://linkedin.com/in/keo-gami">
-    <img src="https://img.shields.io/badge/@keo--gami-060308?logo=linkedin&style=for-the-badge&logoColor=0A66C2" />
+    <img src="https://img.shields.io/badge/in/keo--gami-060308?logo=linkedin&style=for-the-badge&logoColor=0A66C2" />
   </a>
   <a href="twitter.com/keo_gami">
     <img src="https://img.shields.io/badge/@keo__gami-060308?logo=twitter&style=for-the-badge&logoColor=B195C7" />
