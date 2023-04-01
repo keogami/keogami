@@ -1,6 +1,5 @@
-## Hello World
 ![image](https://user-images.githubusercontent.com/41939011/229309360-9e465f5d-8c30-48b6-93a0-4083155e4c48.png)
-
+## Hello World
 
 Vanilla javascript enjoyer with just a sprinkle of types from typescript.
 
