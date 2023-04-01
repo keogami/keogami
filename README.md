@@ -7,8 +7,8 @@ Undergoing oxidation right now.
 
 Go checkout some of the stuff I built, and give me internet points ^^
 
+`~|<`
 
----
 <a href="https://github.com/anuraghazra/github-readme-stats">
   <picture>
   <source 
@@ -36,3 +36,7 @@ Go checkout some of the stuff I built, and give me internet points ^^
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=keogami&layout=compact&count_private=true&show_icons=true&title_color=B195C7&icon_color=B195C7&hide=html,css,scss&langs_count=6&custom_title=Most%20Based%20Languages" />
   </picture>
 </a>
+
+## Some internet trophies
+![](https://github-trophies.vercel.app/?username=keogami&theme=dracula&rank=SECRET,SSS,SS,AAA,AA,A,B,C&margin-h=8&margin-w=8)
+
