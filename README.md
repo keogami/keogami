@@ -5,18 +5,34 @@ Vanilla javascript enjoyer with just a sprinkle of types from typescript.
 
 Undergoing oxidation right now.
 
-Go checkout some of the stuff I built ^^
+Go checkout some of the stuff I built, and give me internet points ^^
 
 
 ---
-<picture>
-<source 
-  srcset="https://github-readme-stats.vercel.app/api/?username=keogami&count_private=true&show_icons=true&title_color=B195C7&icon_color=B195C7&bg_color=060308&text_color=EBE5F0&border_color=120a17"
-  media="(prefers-color-scheme: dark)"
-/>
-<source
-  srcset="https://github-readme-stats.vercel.app/api/?username=keogami&count_private=true&show_icons=true&title_color=B195C7&icon_color=B195C7"
-  media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-/>
-<img src="https://github-readme-stats.vercel.app/api/?username=keogami&count_private=true&show_icons=true&title_color=B195C7&icon_color=B195C7" />
-</picture>
+<a href="https://github.com/anuraghazra/github-readme-stats">
+  <picture>
+  <source 
+    srcset="https://github-readme-stats.vercel.app/api/?username=keogami&count_private=true&show_icons=true&title_color=B195C7&icon_color=B195C7&bg_color=060308&text_color=EBE5F0&border_color=120a17&custom_title=My%20Github%20Stats"
+    media="(prefers-color-scheme: dark)"
+  />
+  <source
+    srcset="https://github-readme-stats.vercel.app/api/?username=keogami&count_private=true&show_icons=true&title_color=B195C7&icon_color=B195C7&custom_title=My%20Github%20Stats"
+    media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+  />
+  <img src="https://github-readme-stats.vercel.app/api/?username=keogami&count_private=true&show_icons=true&title_color=B195C7&icon_color=B195C7&custom_title=My%20Github%20Stats" />
+  </picture>
+</a>
+
+<a href="https://github.com/anuraghazra/github-readme-stats">
+  <picture>
+  <source 
+    srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=keogami&layout=compact&count_private=true&show_icons=true&title_color=B195C7&icon_color=B195C7&bg_color=060308&text_color=EBE5F0&border_color=120a17&hide=html,css,scss&langs_count=6&custom_title=Most%20Based%20Languages"
+    media="(prefers-color-scheme: dark)"
+  />
+  <source
+    srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=keogami&layout=compact&count_private=true&show_icons=true&title_color=B195C7&icon_color=B195C7&hide=html,css,scss&langs_count=6&custom_title=Most%20Based%20Languages"
+    media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+  />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=keogami&layout=compact&count_private=true&show_icons=true&title_color=B195C7&icon_color=B195C7&hide=html,css,scss&langs_count=6&custom_title=Most%20Based%20Languages" />
+  </picture>
+</a>
