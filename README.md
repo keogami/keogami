@@ -39,14 +39,14 @@ Go checkout some of the stuff I built, and give me internet points ^^
 <a href="https://github.com/anuraghazra/github-readme-stats">
   <picture>
   <source 
-    srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=keogami&layout=compact&count_private=true&show_icons=true&title_color=B195C7&icon_color=B195C7&bg_color=060308&text_color=EBE5F0&border_color=120a17&hide=html,css,scss&langs_count=6&custom_title=Most%20Based%20Languages&r=1"
+    srcset="https://github-readme-stats.vercel.app/api/top-langs/?version=1&username=keogami&layout=compact&count_private=true&show_icons=true&title_color=B195C7&icon_color=B195C7&bg_color=060308&text_color=EBE5F0&border_color=120a17&hide=html,css,scss&langs_count=6&custom_title=Most%20Based%20Languages"
     media="(prefers-color-scheme: dark)"
   />
   <source
-    srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=keogami&layout=compact&count_private=true&show_icons=true&title_color=B195C7&icon_color=B195C7&hide=html,css,scss&langs_count=6&custom_title=Most%20Based%20Languages&r=1"
+    srcset="https://github-readme-stats.vercel.app/api/top-langs/?version=1&username=keogami&layout=compact&count_private=true&show_icons=true&title_color=B195C7&icon_color=B195C7&hide=html,css,scss&langs_count=6&custom_title=Most%20Based%20Languages"
     media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
   />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=keogami&layout=compact&count_private=true&show_icons=true&title_color=B195C7&icon_color=B195C7&hide=html,css,scss&langs_count=6&custom_title=Most%20Based%20Languages&r=1" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?version=1&username=keogami&layout=compact&count_private=true&show_icons=true&title_color=B195C7&icon_color=B195C7&hide=html,css,scss&langs_count=6&custom_title=Most%20Based%20Languages" />
   </picture>
 </a>
 
