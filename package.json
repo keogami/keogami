@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "@astrojs/svelte": "^2.1.0",
+    "@astrojs/ts-plugin": "^0.4.4",
+    "@fontsource/fira-code": "^4.5.13",
+    "@fontsource/fira-sans": "^4.5.10",
     "astro": "^2.1.9",
     "svelte": "^3.54.0"
   }

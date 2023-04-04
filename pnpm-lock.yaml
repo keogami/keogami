@@ -2,11 +2,17 @@ lockfileVersion: 5.4
 
 specifiers:
   '@astrojs/svelte': ^2.1.0
+  '@astrojs/ts-plugin': ^0.4.4
+  '@fontsource/fira-code': ^4.5.13
+  '@fontsource/fira-sans': ^4.5.10
   astro: ^2.1.9
   svelte: ^3.54.0
 
 dependencies:
   '@astrojs/svelte': 2.1.0_astro@2.1.9+svelte@3.58.0
+  '@astrojs/ts-plugin': 0.4.4
+  '@fontsource/fira-code': 4.5.13
+  '@fontsource/fira-sans': 4.5.10
   astro: 2.1.9
   svelte: 3.58.0
 
@@ -107,6 +113,14 @@ packages:
       which-pm-runs: 1.1.0
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@astrojs/ts-plugin/0.4.4:
+    resolution: {integrity: sha512-KlVNAc9K9FEFiRexq00g0kRH9PeS8O8fTlojeD32KCmSbHqZN1kzTc4PBv+OeHzyP866FJeJi7F7Zg0ye+byJQ==}
+    dependencies:
+      '@astrojs/compiler': 1.3.0
+      '@jridgewell/trace-mapping': 0.3.17
+      synckit: 0.8.5
     dev: false
 
   /@astrojs/webapi/2.1.0:
@@ -559,6 +573,14 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@fontsource/fira-code/4.5.13:
+    resolution: {integrity: sha512-T1IG6/2AXSwEKwlrEm3kyIL3RQTMblPyj68HgnBGl0IBGFxgS5LZ7StRdDo/QimJ4Tz6FQGHuy1Y/ShNxaUefA==}
+    dev: false
+
+  /@fontsource/fira-sans/4.5.10:
+    resolution: {integrity: sha512-4Edj+GA0LYSqfXOvdTwVGmCShT8Ycd8bKzdfzM302n+I6Hsg6h3gBkBeNgN19PhkcngDznZyHv3EkyrKqvMTGw==}
+    dev: false
 
   /@jridgewell/gen-mapping/0.1.1:
     resolution: {integrity: sha512-sQXCasFk+U8lWYEe66WxRDOE9PjVz4vSM51fTu3Hw+ClTpUSQb718772vH3pyS5pShp6lvQM7SxgIDXXXmOX7w==}
