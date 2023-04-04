@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+import Common from "@layouts/Common.astro";
+
+export async function getStaticPaths() {
+  const blog = await getCollection('blog');
+  return blog.map(post => ({
+    params: { slug: post.slug }, props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Common title={post.data.title}>
+	<h1>{post.data.title}</h1>
+	<Content />
+</Common>

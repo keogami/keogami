@@ -5,7 +5,6 @@ summary: My nice little hello world post for testing
 tags: [ "hello", "world" ]
 slug: hello-world
 ---
-# Hello World
 A hello world for testing
 ```c
 #include <stdio.io>
