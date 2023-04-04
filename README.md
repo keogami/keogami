@@ -4,7 +4,7 @@
   <a href="https://linkedin.com/in/keo-gami">
     <img src="https://img.shields.io/badge/in/keo--gami-060308?logo=linkedin&style=for-the-badge&logoColor=0A66C2" />
   </a>
-  <a href="twitter.com/keo_gami">
+  <a href="https://twitter.com/keo_gami">
     <img src="https://img.shields.io/badge/@keo__gami-060308?logo=twitter&style=for-the-badge&logoColor=B195C7" />
   </a>
   <a href="https://www.producthunt.com/@keogami">
@@ -39,14 +39,14 @@ Go checkout some of the stuff I built, and give me internet points ^^
 <a href="https://github.com/anuraghazra/github-readme-stats">
   <picture>
   <source 
-    srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=keogami&layout=compact&count_private=true&show_icons=true&title_color=B195C7&icon_color=B195C7&bg_color=060308&text_color=EBE5F0&border_color=120a17&hide=html,css,scss&langs_count=6&custom_title=Most%20Based%20Languages"
+    srcset="https://github-readme-stats.vercel.app/api/top-langs/?version=1&username=keogami&layout=compact&count_private=true&show_icons=true&title_color=B195C7&icon_color=B195C7&bg_color=060308&text_color=EBE5F0&border_color=120a17&hide=html,css,scss&langs_count=6&custom_title=Most%20Based%20Languages"
     media="(prefers-color-scheme: dark)"
   />
   <source
-    srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=keogami&layout=compact&count_private=true&show_icons=true&title_color=B195C7&icon_color=B195C7&hide=html,css,scss&langs_count=6&custom_title=Most%20Based%20Languages"
+    srcset="https://github-readme-stats.vercel.app/api/top-langs/?version=1&username=keogami&layout=compact&count_private=true&show_icons=true&title_color=B195C7&icon_color=B195C7&hide=html,css,scss&langs_count=6&custom_title=Most%20Based%20Languages"
     media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
   />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=keogami&layout=compact&count_private=true&show_icons=true&title_color=B195C7&icon_color=B195C7&hide=html,css,scss&langs_count=6&custom_title=Most%20Based%20Languages" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?version=1&username=keogami&layout=compact&count_private=true&show_icons=true&title_color=B195C7&icon_color=B195C7&hide=html,css,scss&langs_count=6&custom_title=Most%20Based%20Languages" />
   </picture>
 </a>
 
