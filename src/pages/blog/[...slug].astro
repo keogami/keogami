@@ -1,6 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import Common from "@layouts/Common.astro";
+import BlogNav from "@components/BlogNav.astro";
+import "@fontsource/fira-code";
 
 export async function getStaticPaths() {
   const blog = await getCollection('blog');
@@ -13,7 +15,116 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
+<style>
+header {
+  display: grid;
+  gap: 1rem;
+  font-family: "Fira Code", monospace;
+}
+
+header h1 {
+  font-size: 2.25rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+time {
+  font-size: 1.25rem;
+  color: #666;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+}
+
+ul li a:before {
+  content: "#";
+  color: var(--accent);
+  margin-right: 1px;
+}
+
+main {
+  padding: 0px 13vw; 
+  box-sizing: border-box;
+  display: grid;
+  gap: 2rem;
+}
+
+article :global(h1, h2, h3, h4, h5, h6) {
+  font-family: "Fira Code", monospace;
+  font-weight: 400;
+  margin: 1rem 0px;
+}
+
+article :global(h1, h2) {
+  margin-top: 2.5rem;
+}
+
+article :global(h3, h4, h5, h6) {
+  margin-top: 1.5rem;
+}
+
+article :global(h1:before, h2:before, h3:before, h4:before, h5:before, h6:before) {
+  margin-right: 4px;
+}
+
+article :global(h1:before) {
+  content: "#";
+}
+
+article :global(h2:before) {
+  content: "##";
+}
+
+article :global(h3:before) {
+  content: "###";
+}
+
+article :global(h4:before) {
+  content: "####";
+}
+
+article :global(h5:before) {
+  content: "#####";
+}
+
+article :global(h6:before) {
+  content: "######";
+}
+
+:global(p) {
+  font-family: "Fira Code", monospace;
+  color: #333;
+}
+</style>
+
 <Common title={post.data.title}>
-	<h1>{post.data.title}</h1>
-	<Content />
+  <BlogNav />
+  <main>
+    <header>
+    	<h1>{post.data.title}</h1>
+      <time datetime={post.data.publishDate.toISOString()}>
+    		{Intl.DateTimeFormat(undefined, {
+    			year: "numeric", month: "short", day: "2-digit"
+    		}).format(post.data.publishDate)}
+    	</time>
+      <ul>
+    		{post.data.tags.map(tag => <li><a href={`/blog/tags/${tag}`}>{tag}</a></li>)}
+    	</ul>
+    </header>
+    <article>
+    	<Content />
+    </article>
+  </main>
 </Common>

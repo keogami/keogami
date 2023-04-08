@@ -1,5 +1,6 @@
 ---
 import Common from "@layouts/Common.astro";
+import BlogNav from "@components/BlogNav.astro";
 import PostSummary from "@components/PostSummary.astro";
 
 const { blog } = Astro.props
@@ -41,10 +42,7 @@ header {
 </style>
 
 <Common title="Blog">
-	<nav>
-		<a href="/">~|&lt;</a>
-	</nav>
-
+	<BlogNav />
 	<main>
 		<header>
 			<slot name="header"/>
