@@ -123,6 +123,11 @@ article :global(blockquote) {
   padding: 0.001rem 1.5rem; /* blockqoutes have a <p> inside them which has a margin which only shows up when i have a non zero block padding :/ */
   border-left: 0.25rem solid var(--accent);
 }
+
+article :global(img) {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 </style>
 
 <Common title={post.data.title}>
