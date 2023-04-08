@@ -53,6 +53,15 @@ ul li a:before {
 	content: "#";
 	color: var(--accent);
 }
+
+section h2 a, section ul li a {
+	border-bottom: 1px dashed transparent;
+	transition: all 300ms ease-in-out;
+}
+
+section:hover h2 a, section:hover ul li a {
+	border-bottom-color: currentColor;
+}
 </style>
 
 <section>
