@@ -1,0 +1,42 @@
+---
+import Common from "@layouts/Common.astro";
+import PostSummary from "@components/PostSummary.astro";
+
+const { blog } = Astro.props
+---
+
+<style>
+nav {
+	display: flex;
+	justify-content: center;
+}
+
+nav a {
+	font-family: "Fira Code", monospace;
+	color: var(--black-base);
+	text-decoration: none;
+	font-size: 2rem;
+}
+
+body {
+	font-family: "Fira Code", monospace;
+}
+</style>
+
+<Common title="Blog">
+	<nav>
+		<a href="/">~|&lt;</a>
+	</nav>
+
+	<main>
+		<header>
+			<slot name="header"/>
+		</header>
+
+		<div id="posts">
+		{[...blog, ...blog, ...blog].map(post => {
+		  return <PostSummary {post} />
+		})}
+		</div>
+	</main>
+</Common>

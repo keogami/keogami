@@ -1,48 +1,16 @@
 ---
-import Common from "@layouts/Common.astro";
-import PostSummary from "@components/PostSummary.astro";
+import Blog from "@layouts/Blog.astro";
 import { getCollection } from "astro:content";
 
 const blog = await getCollection("blog");
 ---
-
 <style>
-nav {
-	display: flex;
-	justify-content: center;
-}
-
-nav a {
-	font-family: "Fira Code", monospace;
-	color: var(--black-base);
-	text-decoration: none;
-	font-size: 2rem;
-}
-
-header h1 {
+h1 {
 	font-size: 2rem;
 	font-weight: 400;
 }
-
-body {
-	font-family: "Fira Code", monospace;
-}
 </style>
 
-<Common title="Blog">
-	<nav>
-		<a href="/">~|&lt;</a>
-	</nav>
-
-	<main>
-		<header>
-			<h1>blog posts</h1>	
-		</header>
-
-		<div id="posts">
-		{[...blog, ...blog, ...blog].map(post => {
-		  return <PostSummary {post} />
-		})}
-		</div>
-	</main>
-</Common>
+<Blog { blog }>
+	<h1 slot="header">blog post</h1>
+</Blog>

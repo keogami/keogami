@@ -1,0 +1,39 @@
+---
+import Blog from "@layouts/Blog.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const blog = await getCollection("blog");
+
+  const tags = blog.flatMap(post => post.data.tags).map(tag => ({
+     params: { tag } 
+  }))
+
+  // who gives a fuck about performance when its fucking typescript
+  return [...new Set(tags)]
+}
+
+const { tag } = Astro.params
+const blog = await getCollection("blog", ({ data }) => data.tags.includes(tag))
+---
+
+<style>
+h1 {
+  font-size: 2rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+h1 span {
+  color: var(--accent);
+  font-size: 2.75rem;
+}
+</style>
+
+<Blog { blog }>
+  <h1 slot="header">
+    <span>#</span>{tag}
+  </h1>
+</Blog>
