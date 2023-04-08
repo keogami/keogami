@@ -51,7 +51,7 @@ header {
 		</header>
 
 		<div id="posts">
-		{[...blog, ...blog, ...blog].map(post => {
+		{blog.map(post => {
 		  return <PostSummary {post} />
 		})}
 		</div>
