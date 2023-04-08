@@ -1,0 +1,22 @@
+---
+import { CollectionEntry } from "astro:content";
+
+export interface Props {
+	post: CollectionEntry<'blog'>
+}
+
+const { post } = Astro.props;
+---
+
+<section>
+	<h2><a href={`/blog/${post.slug}`}>{post.data.title}</a></h2>
+	<time datetime={post.data.publishDate.toISOString()}>
+		{Intl.DateTimeFormat(undefined, {
+			year: "numeric", month: "short", day: "2-digit"
+		}).format(post.data.publishDate)}
+	</time>
+	<summary>{post.data.summary}</summary>
+	<ul>
+		{post.data.tags.map(tag => <li><a href={`/blog/tags/${tag}`}>{tag}</a></li>)}
+	</ul>
+</section>

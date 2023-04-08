@@ -1,5 +1,6 @@
 ---
 import Common from "@layouts/Common.astro";
+import PostSummary from "@components/PostSummary.astro";
 import { getCollection } from "astro:content";
 
 const blog = await getCollection("blog");
@@ -40,18 +41,7 @@ body {
 
 		<div id="posts">
 		{[...blog, ...blog, ...blog].map(post => {
-			return <section>
-				<h2><a href={`/blog/${post.slug}`}>{post.data.title}</a></h2>
-				<time datetime={post.data.publishDate.toISOString()}>
-					{Intl.DateTimeFormat(undefined, {
-						year: "numeric", month: "short", day: "2-digit"
-					}).format(post.data.publishDate)}
-				</time>
-				<summary>{post.data.summary}</summary>
-				<ul>
-					{post.data.tags.map(tag => <li><a href={`/blog/tags/${tag}`}>{tag}</a></li>)}
-				</ul>
-			</section>
+		  return <PostSummary {post} />
 		})}
 		</div>
 	</main>
