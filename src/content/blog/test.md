@@ -5,7 +5,7 @@ summary: My nice little hello world post for testing
 tags: [ "hello", "world" ]
 slug: hello-world
 ---
-Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.
+Here `/path/to/file.png` is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.
 
 ## Headings
 
