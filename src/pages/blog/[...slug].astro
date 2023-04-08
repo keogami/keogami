@@ -117,6 +117,12 @@ article :global(:not(pre) code) {
   background: #DECFEA;
   font-family: "Fira Code", monospace;
 }
+
+article :global(blockquote) {
+  margin: 0;
+  padding: 0.001rem 1.5rem; /* blockqoutes have a <p> inside them which has a margin which only shows up when i have a non zero block padding :/ */
+  border-left: 0.25rem solid var(--accent);
+}
 </style>
 
 <Common title={post.data.title}>
