@@ -9,17 +9,34 @@ const { blog } = Astro.props
 nav {
 	display: flex;
 	justify-content: center;
+	margin-bottom:  4rem;
 }
 
 nav a {
 	font-family: "Fira Code", monospace;
 	color: var(--black-base);
 	text-decoration: none;
-	font-size: 2rem;
+	font-size: 3rem;
 }
 
 body {
 	font-family: "Fira Code", monospace;
+	display: grid;
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+}
+
+main {
+	margin: 0px 18vw;
+}
+
+header {
+	margin-bottom: 3rem;
+}
+
+#posts {
+	display: grid;
+	gap: 2rem;
 }
 </style>
 
