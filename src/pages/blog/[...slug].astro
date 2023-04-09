@@ -129,6 +129,19 @@ article :global(img) {
   text-underline-offset: 2px;
   border-radius: 0.25rem;
 }
+
+article :global(table) {
+  width: 100%;
+  max-width: 460px;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+:global(th, td) {
+  padding: 0.5rem;
+  text-align: center;
+  border: 1px solid #E2D6EC;
+}
 </style>
 
 <Common title={post.data.title}>
