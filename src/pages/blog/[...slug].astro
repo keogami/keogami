@@ -15,7 +15,6 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
-// page specific style
 <style>
 main {
   padding: 0px 13vw; 
@@ -63,7 +62,6 @@ ul li a:before {
 }
 </style>
 
-// MD style
 <style is:global>
 article h1, h2, h3, h4, h5, h6 {
   font-family: "Fira Code", monospace;
