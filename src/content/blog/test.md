@@ -112,6 +112,23 @@ The blockquote element represents content that is quoted from another source, op
   </body>
 </html>
 ```
+```rust
+use std::io;
+
+fn main() -> Result<()> {
+  println!("asfasdfsafdaf");
+
+  let mut k = 234 + 0x3234 >> o0000;
+
+  io::stdin().read_line(&mut something).expect("blahhh");
+
+  uwu::<T>(&haku);
+
+  for asdf in 90..45 {
+    sadf?;
+  }
+}
+```
 
 ## List Types
 
