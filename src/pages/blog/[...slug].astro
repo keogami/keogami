@@ -1,13 +1,14 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 import Common from "@layouts/Common.astro";
 import BlogNav from "@components/BlogNav.astro";
 import "@fontsource/fira-code";
 
 export async function getStaticPaths() {
-  const blog = await getCollection('blog');
-  return blog.map(post => ({
-    params: { slug: post.slug }, props: { post },
+  const blog = await getCollection("blog");
+  return blog.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
   }));
 }
 
@@ -16,194 +17,221 @@ const { Content } = await post.render();
 ---
 
 <style>
-main {
-  padding: 0px 13vw; 
-  box-sizing: border-box;
-  display: grid;
-  gap: 2rem;
-}
+  main {
+    padding: 0px 13vw;
+    box-sizing: border-box;
+    display: grid;
+    gap: 2rem;
+  }
 
-header {
-  display: grid;
-  gap: 1rem;
-  font-family: "Fira Code", monospace;
-}
+  header {
+    display: grid;
+    gap: 1rem;
+    font-family: "Fira Code", monospace;
+  }
 
-header h1 {
-  font-size: 2.25rem;
-  margin: 0;
-  font-weight: 400;
-}
+  header h1 {
+    font-size: 2.25rem;
+    margin: 0;
+    font-weight: 400;
+  }
 
-time {
-  font-size: 1.25rem;
-  color: #666;
-}
+  time {
+    font-size: 1.25rem;
+    color: #666;
+  }
 
-ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  display: flex;
-  gap: 1rem;
-}
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+  }
 
-ul li a {
-  text-decoration: none;
-  color: #333;
-  font-size: 1.25rem;
-  letter-spacing: 1px;
-}
+  ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+  }
 
-ul li a:before {
-  content: "#";
-  color: var(--accent);
-  margin-right: 1px;
-}
+  ul li a:before {
+    content: "#";
+    color: var(--accent);
+    margin-right: 1px;
+  }
 </style>
 
 <style is:global>
-article h1, h2, h3, h4, h5, h6 {
-  font-family: "Fira Code", monospace;
-  font-weight: 400;
-  margin: 1rem 0px;
-}
+  article h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Fira Code", monospace;
+    font-weight: 400;
+    margin: 1rem 0px;
+  }
 
-article h1, h2 {
-  margin-top: 2.5rem;
-}
+  article h1,
+  h2 {
+    margin-top: 2.5rem;
+  }
 
-article h3, h4, h5, h6 {
-  margin-top: 1.5rem;
-}
+  article h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 1.5rem;
+  }
 
-article h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {
-  margin-right: 4px;
-}
+  article h1:before,
+  h2:before,
+  h3:before,
+  h4:before,
+  h5:before,
+  h6:before {
+    margin-right: 4px;
+  }
 
-article h1:before {
-  content: "#";
-}
+  article h1:before {
+    content: "#";
+  }
 
-article h2:before {
-  content: "##";
-}
+  article h2:before {
+    content: "##";
+  }
 
-article h3:before {
-  content: "###";
-}
+  article h3:before {
+    content: "###";
+  }
 
-article h4:before {
-  content: "####";
-}
+  article h4:before {
+    content: "####";
+  }
 
-article h5:before {
-  content: "#####";
-}
+  article h5:before {
+    content: "#####";
+  }
 
-article h6:before {
-  content: "######";
-}
+  article h6:before {
+    content: "######";
+  }
 
-p {
-  font-family: "Fira Code", monospace;
-  color: #333;
-  line-height: 25px;
-}
+  p {
+    font-family: "Fira Code", monospace;
+    color: #333;
+    line-height: 25px;
+  }
 
-article :not(pre) code {
-  padding: 0.2rem 0.3rem;
-  border-radius: 0.25rem;
-  margin-inline: 2px;
-  font-size: 0.85rem;
-  background: #DECFEA;
-  font-family: "Fira Code", monospace;
-}
+  article :not(pre) code {
+    padding: 0.2rem 0.3rem;
+    border-radius: 0.25rem;
+    margin-inline: 2px;
+    font-size: 0.85rem;
+    background: #decfea;
+    font-family: "Fira Code", monospace;
+  }
 
-article blockquote {
-  margin: 0;
-  padding: 0.001rem 1.5rem; /* blockqoutes have a <p> inside them which has a margin which only shows up when i have a non zero block padding :/ */
-  border-left: 0.25rem solid var(--accent);
-}
+  article blockquote {
+    margin: 0;
+    padding: 0.001rem 1.5rem; /* blockqoutes have a <p> inside them which has a margin which only shows up when i have a non zero block padding :/ */
+    border-left: 0.25rem solid var(--accent);
+  }
 
-article img {
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  border-radius: 0.25rem;
-}
+  article img {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    border-radius: 0.25rem;
+  }
 
-article table {
-  width: 100%;
-  max-width: 460px;
-  margin: auto;
-  border-collapse: collapse;
-}
+  article table {
+    width: 100%;
+    max-width: 460px;
+    margin: auto;
+    border-collapse: collapse;
+  }
 
-article th, article td {
-  padding: 0.5rem;
-  text-align: center;
-  border: 1px solid #E2D6EC;
-}
+  article th,
+  article td {
+    padding: 0.5rem;
+    text-align: center;
+    border: 1px solid #e2d6ec;
+  }
 
-article ol, article ul {
-  list-style-position: inside;
-  padding-inline: 0;
-}
+  article ol,
+  article ul {
+    list-style-position: inside;
+    padding-inline: 0;
+  }
 
-article li > ol, article li > ul {
-  padding-inline: 1rem;
-}
+  article li > ol,
+  article li > ul {
+    padding-inline: 1rem;
+  }
 
-article li {
-  line-height: 1.5rem;
-}
+  article li {
+    line-height: 1.5rem;
+  }
 
-article ul li::marker {
-  content: "-  ";
-}
+  article ul li::marker {
+    content: "-  ";
+  }
 
-article abbr {
-  border-bottom: 1px dotted var(--black-base);
-  text-decoration: none;
-}
+  article abbr {
+    border-bottom: 1px dotted var(--black-base);
+    text-decoration: none;
+  }
 
-article kbd {
-  border: 1px dashed var(--accent);
-  padding: 0.2rem 0.3rem;
-  background: #F4E6FF;
-}
+  article kbd {
+    border: 1px dashed var(--accent);
+    padding: 0.2rem 0.3rem;
+    background: #f4e6ff;
+  }
 
-article mark {
-  background: #F4E6FF;
-}
+  article mark {
+    background: #f4e6ff;
+  }
 
-article a {
-  text-decoration: none;
-  color: #8744BC;
-  border-bottom: 1px solid currentColor;
-}
+  article a {
+    text-decoration: none;
+    color: #8744bc;
+    border-bottom: 1px solid currentColor;
+  }
 </style>
 
 <head>
-  <link rel="stylesheet" href="/prism.css">
+  <link rel="stylesheet" href="/prism.css" />
 </head>
 
 <Common title={post.data.title}>
   <BlogNav />
   <main>
     <header>
-    	<h1>{post.data.title}</h1>
+      <h1>{post.data.title}</h1>
       <time datetime={post.data.publishDate.toISOString()}>
-    		{Intl.DateTimeFormat(undefined, {
-    			year: "numeric", month: "short", day: "2-digit"
-    		}).format(post.data.publishDate)}
-    	</time>
+        {
+          Intl.DateTimeFormat(undefined, {
+            year: "numeric",
+            month: "short",
+            day: "2-digit",
+          }).format(post.data.publishDate)
+        }
+      </time>
       <ul>
-    		{post.data.tags.map(tag => <li><a href={`/blog/tags/${tag}`}>{tag}</a></li>)}
-    	</ul>
+        {
+          post.data.tags.map((tag) => (
+            <li>
+              <a href={`/blog/tags/${tag}`}>{tag}</a>
+            </li>
+          ))
+        }
+      </ul>
     </header>
     <article>
-    	<Content />
+      <Content />
     </article>
   </main>
 </Common>

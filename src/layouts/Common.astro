@@ -1,30 +1,30 @@
 ---
-import '@fontsource/fira-code'
-import '@fontsource/fira-sans'
+import "@fontsource/fira-code";
+import "@fontsource/fira-sans";
 
 export type Props = {
-	title: string;
-}
+  title: string;
+};
 
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html>
-	<head>
-		<title>{title}</title>
-		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<meta name="generator" content="{Astro.generator}">
-	</head>
-	<body>
-  	<slot></slot>
+  <head>
+    <title>{title}</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="generator" content="{Astro.generator}" />
+  </head>
+  <body class="bg-black text-white">
+    <slot />
   </body>
 </html>
 
-
 <style is:global>
+  /*
 	:root {
 		--accent: #B195C7;
 		--black-base: #060308;
@@ -45,4 +45,5 @@ const { title } = Astro.props;
 	::selection {
 	  background-color: #D6C3E5;
 	}
+*/
 </style>

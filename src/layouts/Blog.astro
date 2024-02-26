@@ -3,55 +3,57 @@ import Common from "@layouts/Common.astro";
 import BlogNav from "@components/BlogNav.astro";
 import PostSummary from "@components/PostSummary.astro";
 
-const { blog } = Astro.props
+const { blog } = Astro.props;
 ---
 
 <style>
-nav {
-	display: flex;
-	justify-content: center;
-	margin-bottom:  4rem;
-}
+  nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+  }
 
-nav a {
-	font-family: "Fira Code", monospace;
-	color: var(--black-base);
-	text-decoration: none;
-	font-size: 3rem;
-}
+  nav a {
+    font-family: "Fira Code", monospace;
+    color: var(--black-base);
+    text-decoration: none;
+    font-size: 3rem;
+  }
 
-body {
-	font-family: "Fira Code", monospace;
-	display: grid;
-	padding-top: 3rem;
-	padding-bottom: 3rem;
-}
+  body {
+    font-family: "Fira Code", monospace;
+    display: grid;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
 
-main {
-	margin: 0px 18vw;
-}
+  main {
+    margin: 0px 18vw;
+  }
 
-header {
-	margin-bottom: 3rem;
-}
+  header {
+    margin-bottom: 3rem;
+  }
 
-#posts {
-	display: grid;
-	gap: 2rem;
-}
+  #posts {
+    display: grid;
+    gap: 2rem;
+  }
 </style>
 
 <Common title="Blog">
-	<BlogNav />
-	<main>
-		<header>
-			<slot name="header"/>
-		</header>
+  <BlogNav />
+  <main>
+    <header>
+      <slot name="header" />
+    </header>
 
-		<div id="posts">
-		{blog.map(post => {
-		  return <PostSummary {post} />
-		})}
-		</div>
-	</main>
+    <div id="posts">
+      {
+        blog.map((post) => {
+          return <PostSummary {post} />;
+        })
+      }
+    </div>
+  </main>
 </Common>
