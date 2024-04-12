@@ -1,9 +1,15 @@
 ---
 import Common from "@layouts/Common.astro";
 import BlogNav from "@components/BlogNav.astro";
-import PostSummary from "@components/PostSummary.astro";
+import PostSummary, {
+  type Props as PostProps,
+} from "@components/PostSummary.astro";
 
 const { blog } = Astro.props;
+
+export interface Props {
+  blog: PostProps["post"][];
+}
 ---
 
 <style>
