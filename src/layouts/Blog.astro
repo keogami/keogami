@@ -40,11 +40,6 @@ export interface Props {
   header {
     margin-bottom: 3rem;
   }
-
-  #posts {
-    display: grid;
-    gap: 2rem;
-  }
 </style>
 
 <Common title="Blog">
@@ -54,7 +49,7 @@ export interface Props {
       <slot name="header" />
     </header>
 
-    <div id="posts">
+    <div class="flex flex-col gap-10">
       {
         blog.map((post) => {
           return <PostSummary {post} />;
