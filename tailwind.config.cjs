@@ -8,6 +8,10 @@ module.exports = {
 				'black': '#070507',
 				'lavender': '#B195C7',
 				'dark-lavender': '#4d385c',
+			},
+			fontFamily: {
+				'sans': ['"Fira Sans"'],
+				'serif': ['"Fira Mono"'],
 			}
 		},
 	},
