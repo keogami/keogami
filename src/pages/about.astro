@@ -1,0 +1,73 @@
+---
+import BlogNav from "@components/BlogNav.astro";
+import Common from "@layouts/Common.astro";
+
+const socials = [
+  {
+    href: "https://github.com/keogami",
+    icon: "github",
+  },
+  {
+    href: "https://linkedin.com/in/keo-gami",
+    icon: "linkedin",
+  },
+  {
+    href: "https://x.com/keo_gami",
+    icon: "twitter/x",
+  },
+];
+---
+
+<style>
+  body {
+    font-family: "Fira Code", monospace;
+    display: grid;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+</style>
+
+<Common title="about">
+  <BlogNav />
+
+  <main class="group md:mx-[18vw] lg:mx-[25vw]">
+    <section class="flex">
+      <div class="hidden"></div>
+      <ul class="link-list ml-auto flex list-none gap-4">
+        {
+          socials.map(({ href, icon }) => {
+            return (
+              <li>
+                <a
+                  class="border-b border-dashed border-b-transparent duration-200 hover:!border-b-white group-hover:border-b-gray-400"
+                  href={href}
+                >
+                  {icon}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </section>
+    <h1 class="my-4 text-2xl">Tushar (keogami) Saxena</h1>
+    <!-- rot13 -->
+    {
+      `Uryyb! vs lbh ner ernqvat guvf, gurer'f n ernyyl tbbq cbgraggvny sbe hf gb or sevraqf.
+
+      V nz xrbtnzv, n inavyyn wninfpevcg rawblre naq n shapgvbany cebtenzzvat raguhfvnfgf jub unf svavfurq haqretbvat bkvqngvba.
+
+      V fcraq zbfg bs zl gvzr va gur grezvany, rvgure jevgvat pbqr be svkvat zl flfgrz nsgre gur yngrfg hcqngr zrffrq vg hc lrg ntnva.
+
+      V yvxr gb guvax naq fbyir ceboyrzf, ab znggre gur qbznva: pbzchgre fpvrapr, cuvybfcul, svanaprf, ynathntrf; Vg'f nyy sha naq tnzrf.
+
+      V nyfb ybir jngpuvat avpur navzr yvxr <Unezbal />, grafuv ab gnzntb, rgp. Fraq zr erpbzzraqngvbaf.
+
+      YRGF NYY YBIR YNVA`
+        .split("\n")
+        .map((line) => (
+          <p class="my-2 first:mt-0 last:mb-0 last:mt-8">{line}</p>
+        ))
+    }
+  </main>
+</Common>
