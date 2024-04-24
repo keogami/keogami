@@ -77,6 +77,18 @@ or a weekly series:
 ...
 ```
 
+or a month's end series:
+```rust title="MONTH'S END"
+31/01/2024
+29/02/2024
+31/03/2024
+30/04/2024
+31/05/2024
+30/06/2024
+31/07/2024
+...
+```
+
 Notice that these series are not accurate, that is, the gap between the dates
 changes. However, the dates are much more intuitive, as in, I can easily
 memorize them and/or anticipate them without thinking much.
@@ -102,7 +114,7 @@ pub struct Date {
 ```
 
 ## Delta: Change in time
-A series is essentially an artithematic progression defined as:
+Our series is essentially an artithematic progression defined as:
 
 ```rust
 a[n] = a[0] + n*d
@@ -143,7 +155,6 @@ account that the month and day are cyclic and modulate between their ranges. We
 can use modular arithematic to help us with that.
 
 ```rust title="Add Date and Delta"
-
 impl std::ops::Add<Delta> for Date {
     type Output = Self;
 
@@ -186,6 +197,7 @@ Let's define a function that returns us the number of days for a pair month/
 year.
 
 ```rust title="Number of Days"
+// This is how the Gregorian Calendar defines a leap year.
 pub fn is_leap_year(year: usize) -> bool {
     match year {
         y if y % 400 == 0 => true,
@@ -217,3 +229,57 @@ pub fn days_in(month: Month, year: usize) -> usize {
     }
 }
 ```
+
+With this knowledge we can now go back and try to improve the way we get our
+day. I have chosen to use similar logic as [`std::num::Saturaing`](https://doc.rust-lang.org/stable/std/num/struct.Saturating.html)
+towards `days_in(month, year)` instead of simply modulating, so as to
+potentially skipping months.
+
+```rust title="Add Date and Delta" ins={12-13}
+impl std::ops::Add<Delta> for Date {
+    type Output = Self;
+
+    fn add(self, rhs: D) -> Self::Output {
+        let delta: Delta = rhs.into();
+        let day = self.day + delta.days;
+
+        // snipped...
+        
+        let year = self.year + delta.years + overflow;
+
+        // redefining day after computing computing new month and year
+        let day = std::cmp::min(day, days_in(month, year));
+
+        Self { year, day, month }
+    }
+}
+```
+
+The reason we recompute `day` after evalauting `month` and `year` at the end is
+to avoid the edge cases such as adding the delta `(0, 1, 1)` to `29/01/2024`.
+
+Finally, we can get rid of the hardcoded number of days in a month by replacing
+it with `days_in(month, year)`.
+
+```rust title="Add Date and Delta" ins={9-10} del={7-8}
+impl std::ops::Add<Delta> for Date {
+    type Output = Self;
+
+    fn add(self, rhs: D) -> Self::Output {
+        // snipped...
+
+        let day = day.rem_euclid(31);
+        let overflow = day.div_euclid(31);
+        let day = day.rem_euclid(days_in(self.month, self.year));
+        let overflow = day.div_euclid(days_in(self.month, self.year));
+
+        // snipped...
+    }
+}
+```
+
+With this, we now have a fairly decent definition of `Date + Delta` and we can
+now calculate `a[1]` for any given delta and `a[0]`. Now it should be trivial to
+extend to arbitrary `n`s, right? ...right?
+
+## Associativity of `Date + Delta + Delta`
