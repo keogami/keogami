@@ -29,8 +29,17 @@
 
     gl = context;
 
-    const attribs = await setupGlsl({ gl })
-    drawSomething({ gl, attribs})
+    const { attribs, uniforms } = await setupGlsl({
+      gl,
+      attribs: {
+        aPosition: "a_position",
+      },
+      uniforms: {
+        resolution: "u_resolution"
+      }
+    });
+
+    drawSomething({ gl, attribs, uniforms });
     addEventListener("resize", resizeScreen);
   });
 </script>

@@ -1,7 +1,9 @@
 type GL = WebGL2RenderingContext;
 
-export type SetupGlslInit = {
+export type SetupGlslInit<Attrib extends string, Uniform extends string> = {
   gl: GL
+  attribs: Record<Attrib, string>
+  uniforms: Record<Uniform, string>
 }
 
 async function loadFile(path: string): Promise<string> {
@@ -14,7 +16,7 @@ async function loadFile(path: string): Promise<string> {
   return res.text();
 }
 
-function compileShader({src, shaderType, gl, debugName }: {src: string, shaderType: number, gl: GL, debugName: string}): WebGLShader {
+function compileShader({ src, shaderType, gl, debugName }: { src: string, shaderType: number, gl: GL, debugName: string }): WebGLShader {
   const shader = gl.createShader(shaderType);
   if (!shader) {
     throw new Error(`Couldn't create shader for: ${debugName}`)
@@ -33,7 +35,7 @@ function compileShader({src, shaderType, gl, debugName }: {src: string, shaderTy
   return shader
 }
 
-function createProgram({ gl, vertex, fragment}: { gl: GL, vertex: WebGLShader, fragment: WebGLShader}): WebGLProgram {
+function createProgram({ gl, vertex, fragment }: { gl: GL, vertex: WebGLShader, fragment: WebGLShader }): WebGLProgram {
   const program = gl.createProgram()
   if (!program) {
     throw new Error("Couldn't create webgl program");
@@ -53,7 +55,15 @@ function createProgram({ gl, vertex, fragment}: { gl: GL, vertex: WebGLShader, f
   return program
 }
 
-export async function setupGlsl({ gl }: SetupGlslInit) {
+type Positions<Attrib extends string, Uniform extends string> = {
+  attribs: Record<Attrib, number>
+  uniforms: Record<Uniform, WebGLUniformLocation>
+}
+
+export async function setupGlsl<
+  Attrib extends string = string,
+  Uniform extends string = string,
+>({ gl, attribs: attribsMap, uniforms: uniformsMap }: SetupGlslInit<Attrib, Uniform>): Promise<Positions<Attrib, Uniform>> {
   const [fragmentSrc, vertexSrc] = await Promise.all([
     loadFile('/shaders/voronoi.fragment.glsl'),
     loadFile('/shaders/voronoi.vertex.glsl'),
@@ -75,12 +85,32 @@ export async function setupGlsl({ gl }: SetupGlslInit) {
   gl.clear(gl.COLOR_BUFFER_BIT)
   gl.useProgram(program)
 
+  const attribKeys = Object.keys(attribsMap) as Attrib[]
+  const attribs = Object.fromEntries(attribKeys.map(key => {
+    const name = attribsMap[key]
+    const position = gl.getAttribLocation(program, name)
+    if (position < 0) {
+      throw new Error(`The following attribute is not defined: ${name}`)
+    }
+
+    return [key, position]
+  })) as Record<Attrib, number>
+
+  const uniformKeys = Object.keys(uniformsMap) as Uniform[]
+  const uniforms = Object.fromEntries(uniformKeys.map(key => {
+    const name = uniformsMap[key]
+    const position = gl.getUniformLocation(program, name)
+
+    return [key, position]
+  })) as Record<Uniform, WebGLUniformLocation>
+
   return {
-    aPosition: gl.getAttribLocation(program, "a_position")
+    attribs,
+    uniforms
   }
 }
 
-export function drawSomething({ gl, attribs }: { gl: GL, attribs: Record<"aPosition", number>}) {
+export function drawSomething({ gl, attribs, uniforms }: { gl: GL, attribs: Record<"aPosition", number>, uniforms: Record<"resolution", WebGLUniformLocation> }) {
   const buffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
 
@@ -101,6 +131,8 @@ export function drawSomething({ gl, attribs }: { gl: GL, attribs: Record<"aPosit
   gl.enableVertexAttribArray(attribs.aPosition)
 
   gl.vertexAttribPointer(attribs.aPosition, 2, gl.FLOAT, false, 0, 0)
-  
+
+  gl.uniform2f(uniforms.resolution, gl.canvas.width, gl.canvas.height)
+
   gl.drawArrays(gl.TRIANGLES, 0, 6)
 }
