@@ -1,5 +1,6 @@
 ---
-import Common from "../layouts/Common.astro";
+import Common from "@layouts/Common.astro";
+import BgAnimation from "@components/BgAnimation.svelte";
 
 const links = [
   ["./blog", "blog"],
@@ -27,5 +28,6 @@ const links = [
       class="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-8xl"
       id="signature">~|&lt;</span
     >
+    <BgAnimation client:idle />
   </main>
 </Common>
