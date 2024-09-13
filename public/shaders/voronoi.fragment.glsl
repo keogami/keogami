@@ -13,15 +13,27 @@ out vec4 outColor;
 // }
 
 void main() {
+    float aspect_ratio = (u_resolution.x / u_resolution.y);
     vec2 st = gl_FragCoord.xy / u_resolution;
-    vec2 m = u_mouse / u_resolution;
+    st.x *= aspect_ratio;
 
-    float time_damper = 1.0 / 100.0;
-    float movement = 0.2 + cos(u_time * time_damper) * 0.1;
+    vec2 mouse = u_mouse / u_resolution;
+    mouse.x *= aspect_ratio;
 
-    float diff = distance(st, m);
+    float radius = 0.2;
 
-    vec4 color = mix(vec4(0.4, 0.05, 0.6, 1.0), vec4(0.0, 0.0, 0.0, 1.0), smoothstep(0.05, movement, diff));
+    vec2 point = vec2(0.3, 0.3);
+    vec2 point2 = vec2(0.45, 0.45);
 
-    outColor = color;
+    float c = (1.0 / distance(st, point)) + (1.0 / distance(st, mouse)) + (1.0 / distance(st, point2));
+    vec3 color = mix(vec3(0.0, 0.0, 0.0), vec3(0.4, 0.05, 0.6), smoothstep(0.8, 1.0, c / 20.0));
+
+    // float time_damper = 1.0 / 100.0;
+    // float movement = 0.2 + cos(u_time * time_damper) * 0.1;
+
+    // float diff = distance(st, m);
+
+    // outColor = mix(vec4(0.4, 0.05, 0.6, 1.0), vec4(0.0, 0.0, 0.0, 1.0), smoothstep(0.05, movement, diff));
+
+    outColor = vec4(color, 1.0);
 }
