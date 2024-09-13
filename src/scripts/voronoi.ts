@@ -112,13 +112,13 @@ export async function setupGlsl<
 type DrawArgs = {
   gl: GL;
   attribs: Record<"aPosition", number>;
-  uniforms: Record<"resolution" | "mouse", WebGLUniformLocation>;
+  uniforms: Record<"resolution" | "mouse" | "time", WebGLUniformLocation>;
   time: DOMHighResTimeStamp;
   screen: DOMRect;
   mouse: DOMPoint;
 };
 
-export function draw({ gl, attribs, uniforms, screen, mouse }: DrawArgs) {
+export function draw({ gl, attribs, uniforms, screen, mouse, time }: DrawArgs) {
   gl.viewport(0, 0, screen.width, screen.height)
   const buffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
@@ -144,6 +144,8 @@ export function draw({ gl, attribs, uniforms, screen, mouse }: DrawArgs) {
   gl.uniform2f(uniforms.resolution, screen.width, screen.height)
 
   gl.uniform2f(uniforms.mouse, mouse.x, screen.height - mouse.y)
+
+  gl.uniform1f(uniforms.time, time)
 
   gl.drawArrays(gl.TRIANGLES, 0, 6)
 }

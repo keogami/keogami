@@ -43,6 +43,7 @@
       uniforms: {
         resolution: "u_resolution",
         mouse: "u_mouse",
+        time: "u_time",
       }
     });
 
