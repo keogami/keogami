@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { drawSomething, setupGlsl } from "@scripts/voronoi.ts";
+  import { draw, setupGlsl } from "@scripts/voronoi.ts";
 
   let canvas: HTMLCanvasElement;
   let gl: WebGL2RenderingContext;
@@ -17,7 +17,12 @@
   }
 
   function resizeScreen() {
-    screen = new DOMRect(0, 0, innerWidth, innerHeight);
+    if (!screen) {
+      screen = new DOMRect(0, 0, innerWidth, innerHeight);
+      return
+    }
+    screen.width = innerWidth;
+    screen.height = innerHeight;
   }
 
   onMount(async () => {
@@ -28,6 +33,7 @@
     }
 
     gl = context;
+    moveMouse({ x: screen.width / 2, y: screen.height / 2});
 
     const { attribs, uniforms } = await setupGlsl({
       gl,
@@ -35,19 +41,24 @@
         aPosition: "a_position",
       },
       uniforms: {
-        resolution: "u_resolution"
+        resolution: "u_resolution",
+        mouse: "u_mouse",
       }
     });
 
-    drawSomething({ gl, attribs, uniforms });
     addEventListener("resize", resizeScreen);
+    addEventListener('pointermove', e => moveMouse({ x: e.clientX, y: e.clientY}))
+
+    function drawLoop(time: DOMHighResTimeStamp) {
+      draw({ gl, attribs, uniforms, screen, time, mouse });
+      requestAnimationFrame(drawLoop)
+    }
+
+    requestAnimationFrame(drawLoop)
   });
 </script>
 
-<canvas
-  on:pointermove={(e) => moveMouse({ x: e.clientX, y: e.clientY })}
-  bind:this={canvas}
-></canvas>
+<canvas bind:this={canvas}></canvas>
 
 <style lang="sass">
   canvas

@@ -80,7 +80,6 @@ export async function setupGlsl<
 
   const program = createProgram({ gl, vertex, fragment })
 
-  gl.viewport(0, 0, gl.canvas.width, gl.canvas.height)
   gl.clearColor(0, 0, 0, 0)
   gl.clear(gl.COLOR_BUFFER_BIT)
   gl.useProgram(program)
@@ -110,7 +109,17 @@ export async function setupGlsl<
   }
 }
 
-export function drawSomething({ gl, attribs, uniforms }: { gl: GL, attribs: Record<"aPosition", number>, uniforms: Record<"resolution", WebGLUniformLocation> }) {
+type DrawArgs = {
+  gl: GL;
+  attribs: Record<"aPosition", number>;
+  uniforms: Record<"resolution" | "mouse", WebGLUniformLocation>;
+  time: DOMHighResTimeStamp;
+  screen: DOMRect;
+  mouse: DOMPoint;
+};
+
+export function draw({ gl, attribs, uniforms, screen, mouse }: DrawArgs) {
+  gl.viewport(0, 0, screen.width, screen.height)
   const buffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
 
@@ -132,7 +141,9 @@ export function drawSomething({ gl, attribs, uniforms }: { gl: GL, attribs: Reco
 
   gl.vertexAttribPointer(attribs.aPosition, 2, gl.FLOAT, false, 0, 0)
 
-  gl.uniform2f(uniforms.resolution, gl.canvas.width, gl.canvas.height)
+  gl.uniform2f(uniforms.resolution, screen.width, screen.height)
+
+  gl.uniform2f(uniforms.mouse, mouse.x, screen.height - mouse.y)
 
   gl.drawArrays(gl.TRIANGLES, 0, 6)
 }
