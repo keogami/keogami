@@ -58,6 +58,7 @@
 
     addEventListener("resize", resizeScreen);
     addEventListener('pointermove', e => moveMouse({ x: e.clientX, y: e.clientY}))
+    addEventListener('touchmove', e => moveMouse({ x: e.touches[0].clientX, y: e.touches[0].clientY}))
 
     function drawLoop(time: DOMHighResTimeStamp) {
       delayedMouse.x = lerp(delayedMouse.x, mouse.x, 0.05);
