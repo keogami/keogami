@@ -26,10 +26,12 @@ function compileShader({ src, shaderType, gl, debugName }: { src: string, shader
   gl.compileShader(shader)
 
   if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-    gl.deleteShader(shader)
-    throw new Error(`Couldn't compile shader: ${debugName}`, {
+    const err = new Error(`Couldn't compile shader: ${debugName}`, {
       cause: gl.getShaderInfoLog(shader) ?? 'no clue why'
     })
+    gl.deleteShader(shader)
+
+    throw err
   }
 
   return shader

@@ -6,6 +6,7 @@
   let gl: WebGL2RenderingContext;
   let screen: DOMRect;
   let mouse: DOMPoint;
+  let delayedMouse: DOMPoint;
 
   $: if (screen) {
     canvas.width = screen.width;
@@ -34,6 +35,7 @@
 
     gl = context;
     moveMouse({ x: screen.width / 2, y: screen.height / 2});
+    delayedMouse = new DOMPoint(screen.width / 2, screen.height / 2);
 
     const { attribs, uniforms } = await setupGlsl({
       gl,
@@ -47,11 +49,17 @@
       }
     });
 
+    const lerp = (start: number, end: number, amount: number) => {
+      return (1 - amount) * start + amount * end;
+    };
+
     addEventListener("resize", resizeScreen);
     addEventListener('pointermove', e => moveMouse({ x: e.clientX, y: e.clientY}))
 
     function drawLoop(time: DOMHighResTimeStamp) {
-      draw({ gl, attribs, uniforms, screen, time, mouse });
+      delayedMouse.x = lerp(delayedMouse.x, mouse.x, 0.05);
+      delayedMouse.y = lerp(delayedMouse.y, mouse.y, 0.05);
+      draw({ gl, attribs, uniforms, screen, time, mouse: delayedMouse });
       requestAnimationFrame(drawLoop)
     }
 
