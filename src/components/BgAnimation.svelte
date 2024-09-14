@@ -20,7 +20,7 @@
 
   function moveMouse(to: DOMPointInit) {
     mouse = DOMPoint.fromPoint(to);
-    opacity = lerp(opacity, 1.0, 0.08);
+    opacity = lerp(opacity, 1.0, 0.2);
   }
 
   function resizeScreen() {
