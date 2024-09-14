@@ -4,6 +4,7 @@ precision mediump float;
 uniform vec2 u_resolution;
 uniform vec2 u_mouse;
 uniform float u_time;
+uniform float u_opacity;
 
 out vec4 outColor;
 
@@ -48,6 +49,8 @@ void main() {
     }
 
     vec3 color = mix(vec3(0.0, 0.0, 0.0), vec3(77., 56., 92.) / 255., smoothstep(0.85, 0.9, c / 110.0));
+
+    color *= u_opacity;
 
     outColor = vec4(color, 1.0);
 }
