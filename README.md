@@ -16,7 +16,7 @@
 
 Vanilla javascript enjoyer with just a sprinkle of types from typescript.
 
-Undergoing oxidation right now.
+~Undergoing oxidation right now~ I'm all rusty now~
 
 Go checkout some of the stuff I built, and give me internet points ^^
 
