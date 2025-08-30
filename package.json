@@ -2,7 +2,7 @@
   "name": "keogami",
   "type": "module",
   "version": "0.0.1",
-  "packageMananger": "pnpm@10.15.0",
+  "packageManager": "pnpm@10.15.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
