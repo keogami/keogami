@@ -2,6 +2,7 @@
   "name": "keogami",
   "type": "module",
   "version": "0.0.1",
+  "packageMananger": "pnpm@10.15.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -10,22 +11,22 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/svelte": "^5.7.0",
-    "@astrojs/tailwind": "^5.1.0",
-    "@astrojs/ts-plugin": "^1.6.1",
-    "@fontsource/fira-code": "^5.0.17",
-    "@fontsource/fira-sans": "^5.0.19",
-    "astro": "^4.6.1",
-    "astro-expressive-code": "^0.34.1",
-    "posthog-js": "^1.138.1",
-    "sass": "^1.78.0",
-    "svelte": "^4.2.19",
-    "tailwindcss": "^3.4.3"
+    "@astrojs/svelte": "^7.1.0",
+    "@astrojs/tailwind": "^6.0.2",
+    "@astrojs/ts-plugin": "^1.10.4",
+    "@fontsource/fira-code": "^5.2.6",
+    "@fontsource/fira-sans": "^5.2.6",
+    "astro": "^5.13.5",
+    "astro-expressive-code": "^0.41.3",
+    "posthog-js": "^1.261.0",
+    "sass": "^1.91.0",
+    "svelte": "^5.38.6",
+    "tailwindcss": "^3.4.17"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.12",
+    "@tailwindcss/typography": "^0.5.16",
     "prettier-plugin-astro": "^0.13.0",
-    "prettier-plugin-tailwindcss": "^0.5.13",
-    "sass-embedded": "^1.78.0"
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "sass-embedded": "^1.91.0"
   }
 }

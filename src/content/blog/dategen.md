@@ -401,7 +401,7 @@ let dates = date!(31 / 1 / 2024)
 ```
 
 Which produces the dates:
-``` title=result
+```rs title=result
 31/01/2024
 29/02/2024
 31/03/2024
