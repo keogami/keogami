@@ -16,7 +16,7 @@
     "@fontsource/fira-code": "^5.2.6",
     "@fontsource/fira-sans": "^5.2.6",
     "astro": "^5.13.5",
-    "astro-expressive-code": "^0.34.2",
+    "astro-expressive-code": "^0.41.3",
     "posthog-js": "^1.261.0",
     "sass": "^1.91.0",
     "svelte": "^5.38.6",
