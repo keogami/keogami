@@ -13,7 +13,7 @@
   "dependencies": {
     "@astrojs/svelte": "^7.1.0",
     "@astrojs/tailwind": "^6.0.2",
-    "@astrojs/ts-plugin": "^1.10.4",
+    "@astrojs/ts-plugin": "^1.10.4",df
     "@fontsource/fira-code": "^5.2.6",
     "@fontsource/fira-sans": "^5.2.6",
     "astro": "^5.13.5",
