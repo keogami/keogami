@@ -30,6 +30,7 @@ https://github.com/dolr-ai/off-chain-agent
 - Established comprehensive code quality infrastructure including strict Clippy linting rules, rustfmt project-wide formatting standards, rust-analyzer remote-first development configuration, bacon.toml for continuous compilation checks, GitHub Actions automated CI/CD workflows, structured logging with Sentry context, and major IC dependencies upgrade (#229: 747 additions, 464 deletions) resolving all Clippy deprecation warnings improving codebase maintainability and reducing production bugs.
 - Optimized video processing performance by implementing RAM-based temporary storage (/dev/shm), parallel frame processing with Rayon for concurrent operations, efficient resource cleanup patterns with proper temp directory management, and intelligent pipeline ordering to minimize cloud service costs reducing processing time by 40% for high-volume video ingestion.
 - Integrated Internet Computer blockchain canisters with off-chain cloud services building bridges between on-chain storage and cloud infrastructure using IC Agent SDK and Candid interface definitions for backup systems, video deduplication index queries, monitoring workflows, and event processing enabling seamless Web3/Web2 hybrid architecture for decentralized social media platform.
+- tech: Rust, Qstash, Axum, Fly.io, BigQuery
 
 #### Leptos frontend
 https://github.com/dolr-ai/hot-or-not-web-leptos-ssr
@@ -47,16 +48,18 @@ https://github.com/dolr-ai/hot-or-not-web-leptos-ssr
 - Optimized dependency management switching to revision-based imports preventing false cache hits, bumping yral-common versions, and managing Cargo.lock updates ensuring reproducible builds
 - Implemented financial precision fixes preventing calculation errors in token amount computations, tooltip alignment improvements preventing UI bleeding, and zoom handling for game card interactions
 - Contributed to infrastructure configuration including OAuth client setup across environments, Google Analytics 4 integration, and Fly.io deployment configurations for preview/staging/production environments
+- tech: Rust, Leptos, axum, Fly.io
 
 ### Rust Developer | Secneural LLC, QATAR | On-Site | 2023 - 2024
 
-- **Team Leadership**: Led a team at Secneural to design and document system architecture using IcePanel.
-- **Runtime Implementation**: Implemented an optimized isolated runtime leveraging Linux namespaces, emphasizing security.
-- **Algorithm Design**: Designed a constraint-based process orchestration algorithm.
-- **Package Manager Development**: Developed a custom package manager built on ALPM.
-- **Filesystem Research**: Conducted extensive research on various filesystems including OverlayFS and OrangeFS.
-- **Network Technologies**: Researched and implemented network technologies such as bridges and VLANs.
-- **Security Practices**: Adopted security-focused coding practices and architectural decisions influenced by a security-oriented environment.
+- Led a team at Secneural to design and document system architecture using IcePanel.
+- Implemented an optimized isolated runtime leveraging Linux namespaces, emphasizing security.
+- Designed a constraint-based process orchestration algorithm.
+- Developed a custom package manager built on ALPM.
+- Conducted extensive research on various filesystems including OverlayFS and OrangeFS.
+- Researched and implemented network technologies such as bridges and VLANs.
+- Adopted security-focused coding practices and architectural decisions influenced by a security-oriented environment.
+- tech: Rust, ZeroMQ, ratatui, Linux (advanced), Direct Linux kernel syscalls
 
 
 ## Projects
@@ -73,6 +76,8 @@ https://github.com/quasilevel/boolviz
 - **Implemented real-time validation system** that analyzes circuit topology, detects missing/extra connections with visual error indicators, and prevents execution of invalid circuits
 - **Created educational interface** with interactive infinite grid canvas, responsive delete widgets that follow viewport transforms, welcome banner for first-time users, and comprehensive tutorial content
 - **Deployed production application to Netlify** with 100% type-safe codebase using strict TypeScript compilation (strictNullChecks, noImplicitAny) and ES2022 module system
+- tech: Typescript, Canvas API, Browser Geometry API, PocketBase, Node Theory
+- first commit: March 2022
 
 ### Dbussy
 https://github.com/keogami/dbussy
@@ -83,6 +88,8 @@ https://github.com/keogami/dbussy
 - Designed dual-mode signal listener supporting both System and Session D-Bus instances with flexible filtering capabilities: specific signal name matching and JQ query-based data transformation for targeted event monitoring
 - Implemented robust error handling using anyhow for context propagation throughout the application, with type-safe proxy generation and generic interface supporting multiple D-Bus bus types
 - Created intuitive CLI using clap derive macros with arguments for bus type selection, service name, interface path, object path specification, JQ query strings, and optional signal name filtering for comprehensive D-Bus inspection capabilities
+- tech: Rust, Linux DBus
+- first commit: August 2022
 
 ### Keydict
 https://github.com/keogami/keydict
@@ -92,6 +99,8 @@ https://github.com/keogami/keydict
 - Designed type-safe CLI interface with Clap derive macros featuring five subcommands (generate-tree, search-string, search, complete-string, complete) with compile-time validation and enum-based command routing
 - Leveraged Rust's type system for zero-cost abstractions including macro-generated TryFrom trait implementations across 8 numeric types for keypad input validation and strong typing to prevent invalid key sequences at compile-time
 - Developed keypad mapping system replicating traditional phone layout (2=abc through 9=wxyz) with bidirectional conversion supporting both string parsing and numeric key sequence interpretation for T9-style input simulation
+- tech: Rust, Clap
+- first commit: June 2025
 
 ### Gitwatch
 https://github.com/keogami/gitwatch
@@ -105,6 +114,8 @@ https://github.com/keogami/gitwatch
 - Applied functional programming patterns throughout codebase including Result monads for explicit error handling in webhook setup, Option monads for safe null handling in client creation, pure functions with no side effects in event formatters, and type-safe discriminated unions for payload routing
 - Implemented comprehensive security measures including OAuth state parameter CSRF validation, context-based webhook authentication using SHA-1 cryptographic hashes, admin-only webhook setup verification through Telegram API role checks, and environment variable validation on startup with development mode detection
 - Structured 368-line menu system implementing State Machine pattern with dynamic navigation, nested submenus, boundary-aware pagination (load flags for prev/next button control), and custom serialization format (`r:owner:name:page:uid:load`) for encoding menu state in callback payloads with type discrimination via prefixes
+- tech: Typescript, Github API, Graphql, Telegram Bot API
+- first commit: Oct 2022
 
 ### Financial Programming Language
 https://github.com/keogami/fpl (private, request access)
@@ -119,10 +130,29 @@ Technical Write-up: https://keogami.dev/blog/dategen
 - Engineered modular workspace architecture with four specialized crates (dategen, program, fpl, printjournal) totaling ~1000 lines of documented Rust code with comprehensive error handling using thiserror and anyhow
 - Applied zero-cost abstractions and Rust's ownership system to ensure memory safety and prevent data races in stateful financial computations without runtime overhead
 - Designed declarative macro-based DSL (dategen!, date!) enabling concise expression of complex temporal patterns and date ranges with compile-time validation
+- tech: Rust, Dotgraphs, Programming Language Design
+- first commit: Feb 2024
+
+## Zenpull
+- Developed concurrent file downloader in Go using goroutine worker pools and channels for parallel downloads with configurable concurrency
+- Implemented HTTP Range requests with automatic retry logic for resumable downloads resilient to network failures
+- Designed SHA-1-based content addressing for idempotent downloads and automatic file deduplication
+- Created automatic file organization system by extension with lazy directory creation and memoized existence checks
+- Optimized streaming I/O with 2MB buffered writes and minimal memory footprint for efficient large file downloads
+- Built GitHub Actions CI/CD pipeline for cross-compilation to 4 architectures (Linux/Windows × amd64/arm64) with automated releases
+- Integrated pprof memory profiling for runtime performance analysis and optimization
+- Delivered zero-configuration CLI with custom flag handling requiring no external dependencies or database
+- tech: Go, HTTP2.0 (Advanced)
+- first commit: Nov 2021
+
 
 ## Education
 
 ### Bachelors in Computer Applications | IIMT Mall Road | India | 2019 - 2022
+- Started the first Programming Club
+- Represented college in Govt Manthan Hackathon
+- Mentored 30+ Students through the Club
+- Became the College's brand ambassador
 
 
 ## Skills
