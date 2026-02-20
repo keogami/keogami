@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import svelte from "@astrojs/svelte";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import * as sass from 'sass';
 
 import expressiveCode from "astro-expressive-code";
@@ -8,6 +8,7 @@ import expressiveCode from "astro-expressive-code";
 // https://astro.build/config
 export default defineConfig({
   vite: {
+    plugins: [tailwindcss()],
     css: {
       preprocessorOptions: {
         scss: {
@@ -16,7 +17,7 @@ export default defineConfig({
       },
     },
   },
-  integrations: [svelte(), tailwind(), expressiveCode({
+  integrations: [svelte(), expressiveCode({
     themes: ['rose-pine'],
     styleOverrides: {
       borderWidth: '0px',

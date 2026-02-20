@@ -12,21 +12,21 @@
   },
   "dependencies": {
     "@astrojs/svelte": "^7.2.5",
-    "@astrojs/tailwind": "^6.0.2",
     "@astrojs/ts-plugin": "^1.10.6",
     "@fontsource/fira-code": "^5.2.6",
     "@fontsource/fira-sans": "^5.2.6",
+    "@tailwindcss/vite": "^4.2.0",
     "astro": "^5.17.3",
     "astro-expressive-code": "^0.41.3",
     "posthog-js": "^1.261.0",
     "sass": "^1.91.0",
     "svelte": "^5.38.6",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^4.2.0"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/typography": "^0.5.19",
     "prettier-plugin-astro": "^0.13.0",
-    "prettier-plugin-tailwindcss": "^0.5.14",
+    "prettier-plugin-tailwindcss": "^0.7.2",
     "sass-embedded": "^1.91.0"
   }
 }
