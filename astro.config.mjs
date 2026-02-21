@@ -2,11 +2,15 @@ import { defineConfig } from 'astro/config';
 import svelte from "@astrojs/svelte";
 import tailwindcss from "@tailwindcss/vite";
 import * as sass from 'sass';
+import { rehypeGithubAlerts } from 'rehype-github-alerts';
 
 import expressiveCode from "astro-expressive-code";
 
 // https://astro.build/config
 export default defineConfig({
+  markdown: {
+    rehypePlugins: [rehypeGithubAlerts],
+  },
   vite: {
     plugins: [tailwindcss()],
     css: {

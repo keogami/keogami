@@ -19,6 +19,7 @@
     "astro": "^5.17.3",
     "astro-expressive-code": "^0.41.3",
     "posthog-js": "^1.261.0",
+    "rehype-github-alerts": "^4.2.0",
     "sass": "^1.91.0",
     "svelte": "^5.38.6",
     "tailwindcss": "^4.2.0"

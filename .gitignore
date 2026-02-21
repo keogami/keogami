@@ -1,4 +1,12 @@
 node_modules/
-.astro/
+
+# vercel internal data
 .vercel
+
+# build artifacts
+.astro/
+dist/
+**/target
+
+# personal data
 experience.pii.md

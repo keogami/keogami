@@ -9,3 +9,73 @@
   --font-sans: "Fira Sans";
   --font-serif: "Fira Mono";
 }
+
+/* GitHub-style alert blocks */
+.markdown-alert {
+  border-left: 3px solid var(--color-lavender);
+  background: #191724;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+}
+
+.markdown-alert > p {
+  margin-top: initial;
+  margin-bottom: initial;
+}
+
+.markdown-alert > :first-child {
+  margin-top: 0;
+}
+
+.markdown-alert > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  color: var(--color-lavender);
+  margin-bottom: 0.25rem;
+}
+
+.markdown-alert .markdown-alert-title svg {
+  display: none;
+}
+
+.markdown-alert-note {
+  border-left-color: var(--color-lavender);
+}
+
+.markdown-alert-tip {
+  border-left-color: #9ccfd8;
+}
+
+.markdown-alert-important {
+  border-left-color: #ebbcba;
+}
+
+.markdown-alert-warning {
+  border-left-color: #f6c177;
+}
+
+.markdown-alert-caution {
+  border-left-color: #eb6f92;
+}
+
+.markdown-alert-tip .markdown-alert-title {
+  color: #9ccfd8;
+}
+
+.markdown-alert-important .markdown-alert-title {
+  color: #ebbcba;
+}
+
+.markdown-alert-warning .markdown-alert-title {
+  color: #f6c177;
+}
+
+.markdown-alert-caution .markdown-alert-title {
+  color: #eb6f92;
+}
