@@ -4,9 +4,6 @@
   <a href="https://linkedin.com/in/keogami--">
     <img src="https://img.shields.io/badge/in/keogami-----060308?logo=linkedin&style=for-the-badge&logoColor=0A66C2" />
   </a>
-  <a href="https://twitter.com/keo_gami">
-    <img src="https://img.shields.io/badge/@keo__gami-060308?logo=twitter&style=for-the-badge&logoColor=B195C7" />
-  </a>
   <a href="https://www.producthunt.com/@keogami">
     <img src="https://img.shields.io/badge/@keogami-060308?logo=producthunt&style=for-the-badge&logoColor=DA552F" />
   </a>
