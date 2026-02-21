@@ -26,6 +26,8 @@ export default defineConfig({
     styleOverrides: {
       borderWidth: '0px',
       codeFontFamily: "Fira Code",
+      codeFontSize: '0.875rem',
+      codeLineHeight: '1.4',
       frames: {
         editorTabBorderRadius: '4px 0px 0px 0px',
         tooltipSuccessBackground: '#272537',
