@@ -3,6 +3,7 @@ import Common from "@layouts/Common.astro";
 import BgAnimation from "@components/BgAnimation.svelte";
 
 const links = [
+  ["https://mentorship.keogami.dev", "mentorship"],
   ["./blog", "blog"],
   ["./about", "about"],
   // ["./projects", "project"],
@@ -15,7 +16,7 @@ const links = [
       {
         links.map(([href, display]) => (
           <a
-            class="after:w-4px after:h-4px after:bg-blue relative tracking-widest text-gray-500 duration-200 after:pointer-events-none after:absolute after:bottom-0 after:left-1/2 after:-mb-4 after:size-1.5 after:-translate-x-1/2 after:rounded after:bg-dark-lavender after:opacity-0 after:duration-300 after:ease-in-out after:content-[''] hover:text-gray-200 hover:after:opacity-100"
+            class="after:w-4px after:h-4px after:bg-blue after:bg-dark-lavender relative tracking-widest text-gray-500 duration-200 after:pointer-events-none after:absolute after:bottom-0 after:left-1/2 after:-mb-4 after:size-1.5 after:-translate-x-1/2 after:rounded after:opacity-0 after:duration-300 after:ease-in-out after:content-[''] hover:text-gray-200 hover:after:opacity-100"
             href={href}
           >
             {display}
@@ -25,7 +26,7 @@ const links = [
     </header>
 
     <span
-      class="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-8xl"
+      class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-8xl"
       id="signature">~|&lt;</span
     >
     <BgAnimation client:idle />

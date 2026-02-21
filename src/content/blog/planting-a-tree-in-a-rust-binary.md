@@ -480,6 +480,4 @@ Contents of section .rodata:
  8cf0 696e6700 93000000 ecffffff deadbeef  ing.............
 ```
 
----
-
 _La fin._

@@ -20,6 +20,42 @@ const { Content } = await post.render();
   body {
     margin: 3rem 0px 18rem;
   }
+
+  .dither-btn {
+    position: relative;
+    display: inline-block;
+    background: #B195C7;
+    color: #070507;
+    font-family: 'Fira Code', monospace;
+    font-weight: 700;
+    font-size: 1.125rem;
+    letter-spacing: 0.1em;
+    padding: 0.875rem 2.5rem;
+    text-decoration: none;
+    transition: filter 0.2s;
+  }
+
+  .dither-btn:hover {
+    filter: brightness(1.15);
+  }
+
+  .dither-btn::before,
+  .dither-btn::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    bottom: -4px;
+    width: 8px;
+    background: repeating-conic-gradient(#B195C7 0% 25%, transparent 0% 50%) 0 0 / 4px 4px;
+  }
+
+  .dither-btn::before {
+    right: 100%;
+  }
+
+  .dither-btn::after {
+    left: 100%;
+  }
 </style>
 
 <Common title={post.data.title}>
@@ -59,5 +95,19 @@ const { Content } = await post.render();
     >
       <Content />
     </article>
+    <section class="mt-16 border-t border-dark-lavender pt-8 text-center">
+      <p class="font-['Fira_Code',monospace] text-xl text-white mb-2">
+        $ ready --to-level-up?
+      </p>
+      <p class="font-['Fira_Code',monospace] text-sm text-gray-400 mb-8">
+        1:1 mentorship. daily sessions. real projects.
+      </p>
+      <a
+        class="dither-btn"
+        href="https://mentorship.keogami.dev"
+      >
+        ./ENROLL.SH
+      </a>
+    </section>
   </main>
 </Common>
