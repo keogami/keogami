@@ -4,12 +4,12 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-types = { path = "./types" }
+shared = { path = "./shared" }
 rkyv = { version = "0.8.15", default-features = false, features = ["alloc"] }
 anyhow = "1.0.102"
 const_format = "0.2.35"
 
 [build-dependencies]
-types = { path = "./types" }
+shared = { path = "./shared" }
 rkyv = { version = "0.8.15", default-features = false, features = ["alloc"] }
 anyhow = "1.0.102"

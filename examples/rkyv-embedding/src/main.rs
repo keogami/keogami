@@ -1,5 +1,5 @@
 use rkyv::util::Align;
-use types::{ARCHIVE_NAME, ArchivedEmbeddedData};
+use shared::{ARCHIVE_NAME, ArchivedEmbeddedData};
 
 static ARCHIVED_DATA: Align<[u8; include_bytes!(ARCHIVE_NAME!("OUT_DIR")).len()]> =
     Align(*include_bytes!(ARCHIVE_NAME!("OUT_DIR")));

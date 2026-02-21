@@ -2,7 +2,7 @@ use std::{env, fs, path::Path};
 
 use anyhow::Context;
 use rkyv::{rancor, to_bytes};
-use types::{ARCHIVE_NAME, EmbeddedData};
+use shared::{ARCHIVE_NAME, EmbeddedData};
 
 fn main() -> anyhow::Result<()> {
     let data_to_embed = EmbeddedData::default();
